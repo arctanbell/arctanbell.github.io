@@ -36,6 +36,27 @@
             text-align: center;
         }
         
+        .nav {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.2);
+            transition: background 0.3s;
+        }
+        
+        .nav a:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
         .profile-img {
             width: 150px;
             height: 150px;
@@ -140,6 +161,12 @@
                 padding: 40px 20px;
             }
             
+            .nav {
+                position: static;
+                justify-content: center;
+                margin-bottom: 20px;
+            }
+            
             h1 {
                 font-size: 2em;
             }
@@ -153,6 +180,10 @@
 <body>
     <div class="container">
         <header>
+            <div class="nav">
+                <a href="index.html">首页</a>
+                <a href="arena.html">Arena 排行榜</a>
+            </div>
             <div class="profile-img">👤</div>
             <h1>arctanbell</h1>
             <p class="tagline">开发者 | 创造者 | 学习者</p>
