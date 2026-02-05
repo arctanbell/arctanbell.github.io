@@ -3,91 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arena AI 排行榜 | arctanbell</title>
+    <title>Arena AI 排行榜 - arctanbell</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             line-height: 1.6;
             color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            overflow: hidden;
+            padding: 20px;
+            background-color: #fff;
         }
         
         header {
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            color: white;
-            padding: 60px 40px;
             text-align: center;
-        }
-        
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 4px solid white;
-            margin: 0 auto 20px;
-            background: url('https://avatars.githubusercontent.com/arctanbell') center/cover no-repeat;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
         }
         
         h1 {
             font-size: 2.5em;
             margin-bottom: 10px;
+            font-weight: 600;
         }
         
-        .tagline {
+        .subtitle {
             font-size: 1.2em;
-            opacity: 0.9;
+            color: #666;
+            margin-bottom: 10px;
         }
         
-        .content {
-            padding: 40px;
+        .institution {
+            font-size: 1.1em;
+            color: #555;
         }
         
-        .navigation {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        
-        .nav-link {
-            display: inline-block;
-            margin: 0 15px;
-            color: #4facfe;
+        .institution a {
+            color: #555;
             text-decoration: none;
-            font-weight: bold;
-            padding: 8px 16px;
-            border-radius: 20px;
-            transition: all 0.3s ease;
         }
         
-        .nav-link:hover {
-            background: #f0f8ff;
-            transform: translateY(-2px);
+        .institution a:hover {
+            text-decoration: underline;
+        }
+        
+        section {
+            margin-bottom: 40px;
+        }
+        
+        h2 {
+            font-size: 1.5em;
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            color: #333;
+        }
+        
+        .nav {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .nav a {
+            margin: 0 10px;
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .nav a:hover {
+            text-decoration: underline;
         }
         
         .arena-container {
-            position: relative;
             width: 100%;
-            height: 800px;
-            border: 2px solid #eee;
-            border-radius: 15px;
+            height: 600px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
         }
         
         .arena-iframe {
@@ -96,115 +92,97 @@
             border: none;
         }
         
-        .loading {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 1.2em;
-            color: #666;
-        }
-        
-        .fallback-info {
+        .fallback-content {
             background: #f9f9f9;
             padding: 20px;
-            border-radius: 10px;
+            border-radius: 8px;
             margin-top: 20px;
-            border-left: 4px solid #4facfe;
+        }
+        
+        .fallback-content h3 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .fallback-content p {
+            margin-bottom: 10px;
+        }
+        
+        .fallback-content a {
+            color: #007acc;
+            text-decoration: none;
+        }
+        
+        .fallback-content a:hover {
+            text-decoration: underline;
         }
         
         footer {
-            background: #333;
-            color: white;
             text-align: center;
-            padding: 20px;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #777;
             font-size: 0.9em;
         }
         
-        @media (max-width: 768px) {
-            header {
-                padding: 40px 20px;
+        @media (max-width: 600px) {
+            body {
+                padding: 15px;
             }
             
             h1 {
                 font-size: 2em;
             }
             
-            .content {
-                padding: 20px;
+            .nav a {
+                display: block;
+                margin: 5px 0;
             }
             
             .arena-container {
-                height: 600px;
+                height: 400px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="profile-img"></div>
-            <h1>arctanbell</h1>
-            <p class="tagline">开发者 | 创造者 | 学习者</p>
-        </header>
-        
-        <div class="content">
-            <div class="navigation">
-                <a href="index.html" class="nav-link">首页</a>
-                <a href="arena.html" class="nav-link">Arena AI 排行榜</a>
-            </div>
-            
-            <h2 style="color: #4facfe; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eee;">
-                Arena AI 排行榜
-            </h2>
-            
-            <p style="margin-bottom: 20px; font-size: 1.1em;">
-                这里展示最新的 AI 模型排行榜，数据来自 <a href="https://arena.ai/zh/leaderboard" target="_blank" style="color: #4facfe; text-decoration: none;">Arena AI</a>。
-                排行榜会实时更新，展示各种前沿 AI 模型在不同任务上的表现。
-            </p>
-            
-            <div class="arena-container">
-                <div class="loading">正在加载 Arena AI 排行榜...</div>
-                <iframe 
-                    src="https://arena.ai/zh/leaderboard" 
-                    class="arena-iframe"
-                    onload="this.previousElementSibling.style.display='none';"
-                    sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
-                    referrerpolicy="no-referrer">
-                </iframe>
-            </div>
-            
-            <div class="fallback-info">
-                <h3 style="margin-bottom: 10px; color: #333;">如果无法加载排行榜</h3>
-                <p>您可以直接访问原始页面：<a href="https://arena.ai/zh/leaderboard" target="_blank" style="color: #4facfe; text-decoration: none;">https://arena.ai/zh/leaderboard</a></p>
-                <p>排行榜包含了超过 300 个 AI 模型的详细排名和性能数据，包括 GPT、Claude、Gemini、Groq 等主流模型的表现对比。</p>
-            </div>
+    <header>
+        <h1>arctanbell</h1>
+        <div class="subtitle">开发者 | 创造者 | 学习者</div>
+        <div class="institution">
+            <a href="https://github.com/arctanbell">GitHub</a>
         </div>
-        
-        <footer>
-            <p>&copy; 2024 arctanbell. 使用 GitHub Pages 托管.</p>
-        </footer>
+    </header>
+    
+    <div class="nav">
+        <a href="index.html">首页</a>
+        <a href="arena.html">Arena 排行榜</a>
     </div>
     
-    <script>
-        // 添加一些基本的错误处理
-        const iframe = document.querySelector('.arena-iframe');
-        iframe.onerror = function() {
-            document.querySelector('.loading').textContent = '加载失败，请直接访问原始页面';
-            document.querySelector('.loading').style.color = '#e74c3c';
-        };
+    <section id="arena">
+        <h2>Arena AI 排行榜</h2>
+        <p>这里是嵌入的 Arena AI 模型排行榜，展示了当前最前沿的 AI 模型性能对比。</p>
         
-        // 添加导航高亮
-        document.addEventListener('DOMContentLoaded', function() {
-            const currentLocation = window.location.pathname;
-            const navLinks = document.querySelectorAll('.nav-link');
-            navLinks.forEach(link => {
-                if (link.getAttribute('href') === currentLocation.split('/').pop()) {
-                    link.style.backgroundColor = '#4facfe';
-                    link.style.color = 'white';
-                }
-            });
-        });
-    </script>
+        <div class="arena-container">
+            <iframe 
+                src="https://arena.ai/zh/leaderboard" 
+                class="arena-iframe"
+                title="Arena AI Leaderboard"
+                loading="lazy">
+            </iframe>
+        </div>
+        
+        <div class="fallback-content">
+            <h3>关于 Arena AI 排行榜</h3>
+            <p>Arena AI 是一个权威的 AI 模型基准测试平台，通过人类偏好评估来排名各种大语言模型的性能。</p>
+            <p>排行榜包含了从 Claude、GPT、Gemini 到开源模型等各种 AI 系统的综合表现。</p>
+            <p>如果您无法看到上面的嵌入内容，请直接访问 <a href="https://arena.ai/zh/leaderboard" target="_blank">Arena AI 官方网站</a>。</p>
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2024 arctanbell. 使用 GitHub Pages 托管.</p>
+    </footer>
 </body>
 </html>
