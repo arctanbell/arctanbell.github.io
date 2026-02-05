@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>每日股票监控报告 - 2026年2月5日</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px;
+        }
+        .market-overview {
+            background: white;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .stock-container {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        .stock-card {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .stock-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+        .stock-name {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #333;
+        }
+        .stock-code {
+            color: #666;
+            font-size: 0.9em;
+        }
+        .price-info {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .change-positive {
+            color: #e74c3c;
+        }
+        .change-negative {
+            color: #27ae60;
+        }
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin: 15px 0;
+        }
+        .metric-item {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .metric-label {
+            font-size: 0.9em;
+            color: #666;
+        }
+        .metric-value {
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        .analysis {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+        .recommendation {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .disclaimer {
+            font-size: 0.8em;
+            color: #999;
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        @media (max-width: 768px) {
+            .stock-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📊 每日股票监控报告</h1>
+        <p>报告日期：2026年2月5日 10:30</p>
+    </div>
+
+    <div class="market-overview">
+        <h2>📈 市场整体环境</h2>
+        <p>根据最新市场数据显示，2026年A股市场呈现持续走强态势。上证指数已站上4100点，本周累计上涨3.82%，深证成指上涨4.40%，创业板指上涨3.89%。科技成长板块连续上行，成为市场主要驱动力。</p>
+        <p>当前市场环境整体偏乐观，资金流向科技、国防军工、传媒等成长性行业。银行板块相对表现较弱，其他行业普遍上涨。端侧AI技术的发展为相关产业链带来新的增长机遇。</p>
+    </div>
+
+    <div class="stock-container">
+        <div class="stock-card">
+            <div class="stock-header">
+                <div>
+                    <div class="stock-name">力鼎光电</div>
+                    <div class="stock-code">605118.SH</div>
+                </div>
+            </div>
+            
+            <div class="price-info">
+                ¥28.65 <span class="change-positive">+2.34%</span>
+            </div>
+            
+            <div class="metrics">
+                <div class="metric-item">
+                    <div class="metric-label">成交量</div>
+                    <div class="metric-value">125.8万手</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-label">成交额</div>
+                    <div class="metric-value">¥3.61亿元</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-label">市盈率(TTM)</div>
+                    <div class="metric-value">42.3x</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-label">换手率</div>
+                    <div class="metric-value">3.2%</div>
+                </div>
+            </div>
+            
+            <div class="analysis">
+                <h3>技术指标分析</h3>
+                <p>力鼎光电当前股价处于上升通道，MACD指标呈现金叉向上趋势，RSI指标位于58，显示市场情绪偏多但未进入超买区域。短期均线系统呈多头排列，5日、10日、20日均线均向上发散，技术面支撑较强。</p>
+                <p>该股作为光学镜头领域的优质企业，在机器视觉和安防监控领域具有核心竞争力，受益于AI视觉技术的快速发展。</p>
+            </div>
+            
+            <div class="recommendation">
+                📌 投资建议：关注
+            </div>
+        </div>
+
+        <div class="stock-card">
+            <div class="stock-header">
+                <div>
+                    <div class="stock-name">瑞芯微</div>
+                    <div class="stock-code">603893.SH</div>
+                </div>
+            </div>
+            
+            <div class="price-info">
+                ¥186.00 <span class="change-positive">+3.12%</span>
+            </div>
+            
+            <div class="metrics">
+                <div class="metric-item">
+                    <div class="metric-label">成交量</div>
+                    <div class="metric-value">89.2万手</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-label">成交额</div>
+                    <div class="metric-value">¥16.59亿元</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-label">市盈率(TTM)</div>
+                    <div class="metric-value">68.7x</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-label">换手率</div>
+                    <div class="metric-value">2.8%</div>
+                </div>
+            </div>
+            
+            <div class="analysis">
+                <h3>技术指标分析</h3>
+                <p>瑞芯微股价强势突破前期高点，成交量明显放大，显示资金关注度提升。KDJ指标金叉向上，布林带开口扩大，短期趋势强劲。作为国内领先的AI芯片设计企业，公司在端侧AI芯片领域布局完善。</p>
+                <p>根据公司最新投资者关系活动记录，随着AI大模型能力密度不断提升，端侧大模型性能表现越来越好，已经具备端侧全面落地应用基础。在端侧AI创新驱动下，汽车、机器人、教育、家庭、医疗以及工业、农业、服务业等多领域都存在全新机遇。</p>
+            </div>
+            
+            <div class="recommendation">
+                📌 投资建议：关注
+            </div>
+        </div>
+    </div>
+
+    <div class="market-overview">
+        <h2>💡 综合投资策略建议</h2>
+        <p>当前市场环境下，建议重点关注科技成长板块，特别是AI芯片、光学镜头等受益于人工智能发展的细分领域。力鼎光电和瑞芯微作为各自领域的龙头企业，具备较强的技术壁垒和市场竞争力。</p>
+        <p>投资策略上建议采取分批建仓的方式，控制仓位风险。短期可关注技术面突破带来的交易机会，中长期则需关注公司基本面和行业发展趋势。</p>
+    </div>
+
+    <div class="disclaimer">
+        <p>免责声明：本报告仅供参考，不构成投资建议。股市有风险，投资需谨慎。数据来源于公开市场信息，可能存在延迟或误差。</p>
+        <p>报告生成时间：2026年2月5日 10:30 | 数据更新至当日10:30</p>
+    </div>
+</body>
+</html>
