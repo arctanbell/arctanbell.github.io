@@ -36,12 +36,14 @@ class ArenaPageTests(unittest.TestCase):
         self.assertIn("cron: '30 6 * * *'", workflow)
         self.assertIn("workflow_dispatch:", workflow)
         self.assertIn("contents: write", workflow)
+        self.assertIn("pages: write", workflow)
         self.assertIn("python3 scripts/update_arena_data.py", workflow)
         self.assertIn("python3 -m unittest discover -s tests -v", workflow)
         self.assertIn(
             "git diff --quiet -- data/arena-leaderboard.json",
             workflow,
         )
+        self.assertIn('repos/${GITHUB_REPOSITORY}/pages/builds', workflow)
 
 
 if __name__ == "__main__":
