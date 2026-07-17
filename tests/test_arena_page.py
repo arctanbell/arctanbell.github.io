@@ -30,6 +30,19 @@ class ArenaPageTests(unittest.TestCase):
         )
         self.assertIn("https://arena.ai/leaderboard", self.html)
 
+    def test_update_workflow_contract(self):
+        workflow = Path(".github/workflows/update-arena.yml").read_text()
+
+        self.assertIn("cron: '30 6 * * *'", workflow)
+        self.assertIn("workflow_dispatch:", workflow)
+        self.assertIn("contents: write", workflow)
+        self.assertIn("python3 scripts/update_arena_data.py", workflow)
+        self.assertIn("python3 -m unittest discover -s tests -v", workflow)
+        self.assertIn(
+            "git diff --quiet -- data/arena-leaderboard.json",
+            workflow,
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
