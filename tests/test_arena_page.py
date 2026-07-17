@@ -37,6 +37,7 @@ class ArenaPageTests(unittest.TestCase):
         self.assertIn("workflow_dispatch:", workflow)
         self.assertIn("contents: write", workflow)
         self.assertIn("pages: write", workflow)
+        self.assertIn("ref: main", workflow)
         self.assertIn("python3 scripts/update_arena_data.py", workflow)
         self.assertIn("python3 -m unittest discover -s tests -v", workflow)
         self.assertIn(
