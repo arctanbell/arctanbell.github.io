@@ -1,6 +1,15 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import argparse
+import json
+import os
+import tempfile
+import urllib.request
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Callable
+
 BASE_URL = (
     "https://raw.githubusercontent.com/"
     "oolong-tea-2026/arena-ai-leaderboards/main/data"
@@ -43,3 +52,84 @@ def normalize_category(payload: dict, category: str, limit: int = 20) -> dict:
         "upstream_model_count": meta.get("model_count", len(models)),
         "models": normalized[:limit],
     }
+
+
+def fetch_json(url: str) -> dict:
+    request = urllib.request.Request(
+        url,
+        headers={"User-Agent": "arctanbell.github.io leaderboard updater"},
+    )
+    with urllib.request.urlopen(request, timeout=30) as response:
+        return json.load(response)
+
+
+def build_snapshot(
+    fetcher: Callable[[str], dict],
+    fetched_at: str | None = None,
+) -> dict:
+    path = parse_latest(fetcher(f"{BASE_URL}/latest.json"))
+    categories = {
+        category: normalize_category(
+            fetcher(f"{BASE_URL}/{path}/{category}.json"),
+            category,
+        )
+        for category in CATEGORIES
+    }
+    return {
+        "schema_version": 1,
+        "snapshot_date": path,
+        "fetched_at": fetched_at
+        or datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
+        "source": {
+            "name": "Arena AI Leaderboards — Daily Snapshots",
+            "repository": (
+                "https://github.com/"
+                "oolong-tea-2026/arena-ai-leaderboards"
+            ),
+            "arena": "https://arena.ai/leaderboard",
+        },
+        "categories": categories,
+    }
+
+
+def write_snapshot(snapshot: dict, output_path: Path) -> None:
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    handle, temp_name = tempfile.mkstemp(
+        prefix=f".{output_path.name}.",
+        dir=output_path.parent,
+        text=True,
+    )
+    try:
+        with os.fdopen(handle, "w", encoding="utf-8") as stream:
+            json.dump(snapshot, stream, ensure_ascii=False, indent=2)
+            stream.write("\n")
+        os.replace(temp_name, output_path)
+    except BaseException:
+        Path(temp_name).unlink(missing_ok=True)
+        raise
+
+
+def update_snapshot(
+    fetcher: Callable[[str], dict],
+    output_path: Path,
+    fetched_at: str | None = None,
+) -> None:
+    write_snapshot(
+        build_snapshot(fetcher, fetched_at=fetched_at),
+        output_path,
+    )
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--output",
+        type=Path,
+        default=Path("data/arena-leaderboard.json"),
+    )
+    args = parser.parse_args()
+    update_snapshot(fetch_json, args.output)
+
+
+if __name__ == "__main__":
+    main()
