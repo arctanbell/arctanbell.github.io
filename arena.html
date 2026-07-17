@@ -3,186 +3,811 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arena AI 排行榜 - arctanbell</title>
+    <meta name="description" content="每日更新的 Arena AI 模型静态排行榜，涵盖 Text、Code 与 Vision 三个分类。">
+    <meta name="theme-color" content="#0b1020">
+    <meta property="og:title" content="Arena AI 静态排行榜 · arctanbell">
+    <meta property="og:description" content="每日同步公开 Arena 数据，查看 Text、Code 与 Vision 模型排名。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://arctanbell.github.io/arena.html">
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/8346786?v=4">
+    <title>Arena AI 静态排行榜 · arctanbell</title>
     <style>
+        :root {
+            --bg: #f6f7fb;
+            --surface: #ffffff;
+            --surface-soft: #f0f2f7;
+            --surface-strong: #0b1020;
+            --text: #151826;
+            --muted: #687087;
+            --line: #e5e8f0;
+            --brand: #635bff;
+            --brand-2: #17b6a4;
+            --accent: #dfff65;
+            --gold: #f0b429;
+            --silver: #8b95a8;
+            --bronze: #b7784e;
+            --shadow: 0 24px 70px rgba(24, 31, 56, 0.10);
+            --radius: 22px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
+            min-width: 0;
+            margin: 0;
+            overflow-x: hidden;
+            color: var(--text);
+            background:
+                radial-gradient(circle at 10% 0%, rgba(99, 91, 255, 0.12), transparent 30rem),
+                radial-gradient(circle at 100% 32%, rgba(23, 182, 164, 0.10), transparent 28rem),
+                var(--bg);
+            font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        button {
+            font: inherit;
+        }
+
+        .shell {
+            width: min(1120px, calc(100% - 40px));
             margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
         }
-        
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #eee;
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            background: rgba(246, 247, 251, 0.84);
+            border-bottom: 1px solid rgba(229, 232, 240, 0.86);
+            backdrop-filter: blur(18px);
         }
-        
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-        
-        .subtitle {
-            font-size: 1.2em;
-            color: #666;
-            margin-bottom: 10px;
-        }
-        
-        .institution {
-            font-size: 1.1em;
-            color: #555;
-        }
-        
-        .institution a {
-            color: #555;
-            text-decoration: none;
-        }
-        
-        .institution a:hover {
-            text-decoration: underline;
-        }
-        
-        section {
-            margin-bottom: 40px;
-        }
-        
-        h2 {
-            font-size: 1.5em;
-            font-weight: 600;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #eee;
-            color: #333;
-        }
-        
+
         .nav {
-            text-align: center;
-            margin-bottom: 20px;
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
         }
-        
-        .nav a {
-            margin: 0 10px;
-            color: #333;
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 11px;
+            font-weight: 800;
             text-decoration: none;
-            font-weight: 500;
+            letter-spacing: -0.02em;
         }
-        
-        .nav a:hover {
-            text-decoration: underline;
+
+        .brand-mark {
+            width: 34px;
+            height: 34px;
+            display: grid;
+            place-items: center;
+            border-radius: 11px;
+            color: white;
+            background: var(--surface-strong);
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 14px;
         }
-        
-        .arena-container {
-            width: 100%;
-            height: 600px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 26px;
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 650;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus-visible {
+            color: var(--text);
+        }
+
+        .nav-cta {
+            padding: 9px 15px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            background: var(--surface);
+        }
+
+        .hero {
+            padding: 88px 0 54px;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            align-items: end;
+            gap: 48px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            margin: 0 0 17px;
+            color: var(--brand);
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 0.11em;
+            text-transform: uppercase;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--brand-2);
+            box-shadow: 0 0 0 5px rgba(23, 182, 164, 0.13);
+        }
+
+        h1 {
+            max-width: 760px;
+            margin: 0;
+            font-size: clamp(44px, 7vw, 74px);
+            line-height: 1.06;
+            letter-spacing: -0.055em;
+        }
+
+        h1 span {
+            color: transparent;
+            background: linear-gradient(115deg, var(--brand), #8a4fff 50%, var(--brand-2));
+            background-clip: text;
+            -webkit-background-clip: text;
+        }
+
+        .hero-copy {
+            max-width: 690px;
+            margin: 24px 0 0;
+            color: var(--muted);
+            font-size: clamp(17px, 2vw, 19px);
+        }
+
+        .sync-badge {
+            padding: 18px 20px;
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            border: 1px solid rgba(23, 182, 164, 0.24);
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.72);
+            box-shadow: 0 12px 35px rgba(34, 40, 66, 0.06);
+        }
+
+        .sync-dot {
+            width: 12px;
+            height: 12px;
+            flex: 0 0 auto;
+            border-radius: 50%;
+            background: #55d98c;
+            box-shadow: 0 0 0 5px rgba(85, 217, 140, 0.15);
+        }
+
+        .sync-badge strong,
+        .sync-badge span {
+            display: block;
+        }
+
+        .sync-badge span {
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .overview {
+            margin-bottom: 24px;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .overview-card {
+            padding: 22px 24px;
+            border: 1px solid var(--line);
+            border-radius: 17px;
+            background: rgba(255, 255, 255, 0.76);
+        }
+
+        .overview-card span,
+        .overview-card strong {
+            display: block;
+        }
+
+        .overview-card span {
+            color: var(--muted);
+            font-size: 12px;
+            font-weight: 750;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .overview-card strong {
+            margin-top: 4px;
+            font-size: 20px;
+            letter-spacing: -0.025em;
+        }
+
+        .leaderboard-card {
+            margin-bottom: 72px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: var(--surface);
+            box-shadow: var(--shadow);
             overflow: hidden;
-            margin-bottom: 20px;
         }
-        
-        .arena-iframe {
+
+        .leaderboard-head {
+            padding: 30px 32px 22px;
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        h2 {
+            margin: 0;
+            font-size: clamp(26px, 4vw, 36px);
+            line-height: 1.15;
+            letter-spacing: -0.035em;
+        }
+
+        #leaderboard-status {
+            margin: 7px 0 0;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .snapshot-label {
+            margin: 0;
+            color: var(--muted);
+            font-size: 13px;
+            text-align: right;
+        }
+
+        .snapshot-label strong {
+            display: block;
+            color: var(--text);
+            font-size: 17px;
+        }
+
+        .tabs {
+            padding: 0 32px 22px;
+            display: flex;
+            gap: 9px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .tab {
+            min-width: 92px;
+            padding: 10px 17px;
+            color: var(--muted);
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            background: var(--surface);
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 780;
+            transition: color 160ms ease, background 160ms ease, transform 160ms ease;
+        }
+
+        .tab:hover {
+            color: var(--text);
+            transform: translateY(-1px);
+        }
+
+        .tab[aria-selected="true"] {
+            color: white;
+            border-color: var(--surface-strong);
+            background: var(--surface-strong);
+        }
+
+        .table-wrap {
+            overflow-x: auto;
+        }
+
+        table {
             width: 100%;
-            height: 100%;
-            border: none;
+            min-width: 760px;
+            border-collapse: collapse;
         }
-        
-        .fallback-content {
-            background: #f9f9f9;
+
+        th,
+        td {
+            padding: 17px 20px;
+            text-align: left;
+            border-bottom: 1px solid var(--line);
+            white-space: nowrap;
+        }
+
+        th {
+            color: var(--muted);
+            background: #fafbfe;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        th:first-child,
+        td:first-child {
+            padding-left: 32px;
+            width: 82px;
+        }
+
+        th:last-child,
+        td:last-child {
+            padding-right: 32px;
+            text-align: right;
+        }
+
+        tbody tr {
+            transition: background 140ms ease;
+        }
+
+        tbody tr:hover {
+            background: #fafbfe;
+        }
+
+        tbody tr.podium {
+            background: linear-gradient(90deg, rgba(99, 91, 255, 0.055), transparent 55%);
+        }
+
+        tbody tr:last-child td {
+            border-bottom: 0;
+        }
+
+        .rank {
+            width: 34px;
+            height: 34px;
+            display: grid;
+            place-items: center;
+            border-radius: 11px;
+            color: var(--muted);
+            background: var(--surface-soft);
+            font-size: 13px;
+            font-weight: 850;
+        }
+
+        .rank-1 {
+            color: #6b4b00;
+            background: #fff1b9;
+        }
+
+        .rank-2 {
+            color: #4f596c;
+            background: #e9edf3;
+        }
+
+        .rank-3 {
+            color: #75462d;
+            background: #f6ddd0;
+        }
+
+        .model-name {
+            max-width: 380px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-weight: 760;
+        }
+
+        .license-pill {
+            margin-left: 8px;
+            padding: 3px 7px;
+            display: inline-block;
+            color: #15665c;
+            border-radius: 999px;
+            background: #dcf8f2;
+            font-size: 10px;
+            font-weight: 800;
+            vertical-align: 2px;
+        }
+
+        .score {
+            font-variant-numeric: tabular-nums;
+            font-weight: 820;
+        }
+
+        .muted-cell {
+            color: var(--muted);
+        }
+
+        .error {
+            margin: 28px 32px 32px;
             padding: 20px;
-            border-radius: 8px;
-            margin-top: 20px;
+            color: #833f17;
+            border: 1px solid #ffd2b3;
+            border-radius: 14px;
+            background: #fff4ec;
         }
-        
-        .fallback-content h3 {
-            margin-bottom: 15px;
-            color: #333;
+
+        .error a {
+            color: var(--brand);
+            font-weight: 750;
         }
-        
-        .fallback-content p {
-            margin-bottom: 10px;
+
+        .source-card {
+            margin-bottom: 76px;
+            padding: clamp(28px, 5vw, 46px);
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 48px;
+            color: white;
+            border-radius: var(--radius);
+            background:
+                radial-gradient(circle at 90% 25%, rgba(99, 91, 255, 0.42), transparent 22rem),
+                var(--surface-strong);
         }
-        
-        .fallback-content a {
-            color: #007acc;
+
+        .source-card h2 {
+            max-width: 430px;
+        }
+
+        .source-copy {
+            align-self: center;
+        }
+
+        .source-copy p {
+            margin: 0 0 18px;
+            color: #b9c1d7;
+        }
+
+        .source-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .source-link {
+            padding: 9px 14px;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.08);
+            font-size: 13px;
+            font-weight: 750;
             text-decoration: none;
         }
-        
-        .fallback-content a:hover {
-            text-decoration: underline;
+
+        .source-link:hover {
+            background: rgba(255, 255, 255, 0.14);
         }
-        
+
         footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-            color: #777;
-            font-size: 0.9em;
+            padding: 30px 0 46px;
+            color: var(--muted);
+            font-size: 13px;
         }
-        
+
+        .footer-inner {
+            padding-top: 25px;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            border-top: 1px solid var(--line);
+        }
+
+        @media (max-width: 780px) {
+            .nav-links a:not(.nav-cta) {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 64px;
+                grid-template-columns: 1fr;
+                align-items: start;
+                gap: 30px;
+            }
+
+            .sync-badge {
+                width: fit-content;
+            }
+
+            .source-card {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+        }
+
         @media (max-width: 600px) {
-            body {
-                padding: 15px;
+            .shell {
+                width: min(100% - 28px, 1120px);
             }
-            
+
+            .nav {
+                min-height: 64px;
+            }
+
             h1 {
-                font-size: 2em;
+                font-size: clamp(38px, 12vw, 48px);
+                letter-spacing: -0.045em;
             }
-            
-            .nav a {
-                display: block;
-                margin: 5px 0;
+
+            .overview {
+                grid-template-columns: 1fr;
             }
-            
-            .arena-container {
-                height: 400px;
+
+            .leaderboard-head {
+                padding: 24px 20px 18px;
+                align-items: start;
+                flex-direction: column;
+            }
+
+            .snapshot-label {
+                text-align: left;
+            }
+
+            .tabs {
+                padding: 0 20px 18px;
+                overflow-x: auto;
+            }
+
+            .tab {
+                min-width: 84px;
+            }
+
+            th:first-child,
+            td:first-child {
+                padding-left: 20px;
+            }
+
+            th:last-child,
+            td:last-child {
+                padding-right: 20px;
+            }
+
+            .error {
+                margin: 20px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition: none !important;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>arctanbell</h1>
-        <div class="subtitle">开发者 | 创造者 | 学习者</div>
-        <div class="institution">
-            <a href="https://github.com/arctanbell">GitHub</a>
-        </div>
+    <header class="site-header">
+        <nav class="nav shell" aria-label="主导航">
+            <a class="brand" href="index.html" aria-label="返回个人主页">
+                <span class="brand-mark">ab</span>
+                <span>arctanbell</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html#about">关于</a>
+                <a href="index.html#projects">项目</a>
+                <a href="index.html#stack">技术栈</a>
+                <a class="nav-cta" href="index.html">返回首页</a>
+            </div>
+        </nav>
     </header>
-    
-    <div class="nav">
-        <a href="index.html">首页</a>
-        <a href="arena.html">Arena 排行榜</a>
-    </div>
-    
-    <section id="arena">
-        <h2>Arena AI 排行榜</h2>
-        <p>这里是嵌入的 Arena AI 模型排行榜，展示了当前最前沿的 AI 模型性能对比。</p>
-        
-        <div class="arena-container">
-            <iframe 
-                src="https://arena.ai/zh/leaderboard" 
-                class="arena-iframe"
-                title="Arena AI Leaderboard"
-                loading="lazy">
-            </iframe>
-        </div>
-        
-        <div class="fallback-content">
-            <h3>关于 Arena AI 排行榜</h3>
-            <p>Arena AI 是一个权威的 AI 模型基准测试平台，通过人类偏好评估来排名各种大语言模型的性能。</p>
-            <p>排行榜包含了从 Claude、GPT、Gemini 到开源模型等各种 AI 系统的综合表现。</p>
-            <p>如果您无法看到上面的嵌入内容，请直接访问 <a href="https://arena.ai/zh/leaderboard" target="_blank">Arena AI 官方网站</a>。</p>
-        </div>
-    </section>
-    
+
+    <main class="shell">
+        <section class="hero">
+            <div>
+                <p class="eyebrow">Arena snapshot</p>
+                <h1>AI 模型<br><span>静态排行榜</span></h1>
+                <p class="hero-copy">
+                    每日同步公开 Arena 数据；页面直接读取本站快照，不再嵌入第三方网页。聚焦 Text、Code 与 Vision 三类模型的最新排名。
+                </p>
+            </div>
+            <div class="sync-badge" aria-label="每日自动同步">
+                <span class="sync-dot" aria-hidden="true"></span>
+                <div>
+                    <strong>每日自动同步</strong>
+                    <span>Last-known-good snapshot</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="overview" aria-label="排行榜概览">
+            <div class="overview-card">
+                <span>Categories</span>
+                <strong>3 个分类</strong>
+            </div>
+            <div class="overview-card">
+                <span>Coverage</span>
+                <strong>每类 Top 20</strong>
+            </div>
+            <div class="overview-card">
+                <span>Update mode</span>
+                <strong>GitHub Actions</strong>
+            </div>
+        </section>
+
+        <section class="leaderboard-card" aria-labelledby="leaderboard-title">
+            <header class="leaderboard-head">
+                <div>
+                    <h2 id="leaderboard-title">模型排名</h2>
+                    <p id="leaderboard-status" aria-live="polite">正在读取本地快照…</p>
+                </div>
+                <p class="snapshot-label">
+                    数据日期
+                    <strong id="snapshot-date">—</strong>
+                </p>
+            </header>
+
+            <div id="leaderboard-tabs" class="tabs" role="tablist" aria-label="排行榜分类">
+                <button class="tab" data-category="text" role="tab" aria-selected="true">Text</button>
+                <button class="tab" data-category="code" role="tab" aria-selected="false">Code</button>
+                <button class="tab" data-category="vision" role="tab" aria-selected="false">Vision</button>
+            </div>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">排名</th>
+                            <th scope="col">模型</th>
+                            <th scope="col">厂商</th>
+                            <th scope="col">分数</th>
+                            <th scope="col">95% CI</th>
+                            <th scope="col">票数</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leaderboard-body"></tbody>
+                </table>
+            </div>
+
+            <div id="leaderboard-error" class="error" hidden>
+                本地排行榜暂时不可用。
+                <a href="https://arena.ai/leaderboard" target="_blank" rel="noreferrer">前往 Arena 查看</a>
+            </div>
+        </section>
+
+        <section class="source-card">
+            <div>
+                <p class="eyebrow">Data provenance</p>
+                <h2>公开数据，本地快照，来源透明。</h2>
+            </div>
+            <div class="source-copy">
+                <p>
+                    排名来自社区维护的 Arena AI 每日公开快照。本页只展示最近一次成功同步的数据，不代表 Arena 官方实时页面。
+                </p>
+                <div class="source-links">
+                    <a class="source-link" href="https://github.com/oolong-tea-2026/arena-ai-leaderboards" target="_blank" rel="noreferrer">快照数据仓库 ↗</a>
+                    <a class="source-link" href="https://arena.ai/leaderboard" target="_blank" rel="noreferrer">Arena 官方排行榜 ↗</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
     <footer>
-        <p>&copy; 2024 arctanbell. 使用 GitHub Pages 托管.</p>
+        <div class="shell footer-inner">
+            <span>© <span id="current-year">2026</span> arctanbell</span>
+            <span>Daily snapshot · Hosted on GitHub Pages</span>
+        </div>
     </footer>
+
+    <script>
+        const state = { snapshot: null, category: "text" };
+        const tabs = [...document.querySelectorAll("[data-category]")];
+        const body = document.getElementById("leaderboard-body");
+        const status = document.getElementById("leaderboard-status");
+        const snapshotDate = document.getElementById("snapshot-date");
+        const error = document.getElementById("leaderboard-error");
+        const table = document.querySelector(".table-wrap");
+
+        function valueOrDash(value) {
+            return value === null || value === undefined || value === "" ? "—" : String(value);
+        }
+
+        function formatNumber(value) {
+            return value === null || value === undefined
+                ? "—"
+                : new Intl.NumberFormat("zh-CN").format(value);
+        }
+
+        function appendCell(row, value, className) {
+            const cell = document.createElement("td");
+            if (className) cell.className = className;
+            cell.textContent = value;
+            row.appendChild(cell);
+            return cell;
+        }
+
+        function renderCategory(categoryName) {
+            const category = state.snapshot.categories[categoryName];
+            state.category = categoryName;
+            body.replaceChildren();
+
+            category.models.forEach((model) => {
+                const row = document.createElement("tr");
+                if (model.rank <= 3) row.classList.add("podium");
+
+                const rankCell = document.createElement("td");
+                const rank = document.createElement("span");
+                rank.className = `rank rank-${model.rank}`;
+                rank.textContent = String(model.rank);
+                rankCell.appendChild(rank);
+                row.appendChild(rankCell);
+
+                const modelCell = document.createElement("td");
+                const modelName = document.createElement("span");
+                modelName.className = "model-name";
+                modelName.textContent = model.model;
+                modelCell.appendChild(modelName);
+                if (model.license === "open") {
+                    const license = document.createElement("span");
+                    license.className = "license-pill";
+                    license.textContent = "OPEN";
+                    modelCell.appendChild(license);
+                }
+                row.appendChild(modelCell);
+
+                appendCell(row, valueOrDash(model.vendor), "muted-cell");
+                appendCell(row, formatNumber(model.score), "score");
+                appendCell(row, model.ci === null ? "—" : `±${model.ci}`, "muted-cell");
+                appendCell(row, formatNumber(model.votes), "muted-cell");
+                body.appendChild(row);
+            });
+
+            tabs.forEach((tab) => {
+                const selected = tab.dataset.category === categoryName;
+                tab.setAttribute("aria-selected", String(selected));
+                tab.tabIndex = selected ? 0 : -1;
+            });
+            status.textContent = `${category.label} · 展示 ${category.models.length} 个模型 · 上游共 ${formatNumber(category.upstream_model_count)} 个`;
+        }
+
+        async function loadSnapshot() {
+            try {
+                const response = await fetch("data/arena-leaderboard.json");
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                const snapshot = await response.json();
+                if (snapshot.schema_version !== 1 || !snapshot.categories) {
+                    throw new Error("Unsupported snapshot schema");
+                }
+                for (const category of ["text", "code", "vision"]) {
+                    if (!snapshot.categories[category]?.models) {
+                        throw new Error(`Missing ${category} category`);
+                    }
+                }
+                state.snapshot = snapshot;
+                snapshotDate.textContent = snapshot.snapshot_date;
+                renderCategory("text");
+            } catch (loadError) {
+                console.error("Unable to load Arena snapshot", loadError);
+                status.textContent = "无法读取本地排行榜快照";
+                table.hidden = true;
+                document.getElementById("leaderboard-tabs").hidden = true;
+                error.hidden = false;
+            }
+        }
+
+        tabs.forEach((tab) => {
+            tab.addEventListener("click", () => {
+                if (state.snapshot) renderCategory(tab.dataset.category);
+            });
+        });
+
+        document.getElementById("current-year").textContent = new Date().getFullYear();
+        loadSnapshot();
+    </script>
 </body>
 </html>
