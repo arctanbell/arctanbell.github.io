@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "snapshot_date": "2026-07-18",
-  "fetched_at": "2026-07-18T08:17:22.212724Z",
+  "snapshot_date": "2026-07-19",
+  "fetched_at": "2026-07-19T08:42:20.755259Z",
   "source": {
     "name": "Arena AI Leaderboards — Daily Snapshots",
     "repository": "https://github.com/oolong-tea-2026/arena-ai-leaderboards",
@@ -11,7 +11,7 @@
     "text": {
       "label": "Text",
       "source_url": "https://arena.ai/leaderboard/text",
-      "upstream_model_count": 20,
+      "upstream_model_count": 10,
       "models": [
         {
           "rank": 1,
@@ -102,96 +102,6 @@
           "score": 1486.0,
           "ci": 9.0,
           "votes": 4095
-        },
-        {
-          "rank": 11,
-          "model": "gemini-3.1-pro-preview",
-          "vendor": "Google",
-          "license": "proprietary",
-          "score": 1485.0,
-          "ci": 4.0,
-          "votes": 81473
-        },
-        {
-          "rank": 12,
-          "model": "claude-opus-4-8-thinking",
-          "vendor": "Anthropic",
-          "license": "proprietary",
-          "score": 1483.0,
-          "ci": 5.0,
-          "votes": 28685
-        },
-        {
-          "rank": 13,
-          "model": "gpt-5.5-high",
-          "vendor": "OpenAI",
-          "license": "proprietary",
-          "score": 1482.0,
-          "ci": 4.0,
-          "votes": 43492
-        },
-        {
-          "rank": 14,
-          "model": "gpt-5.4-high",
-          "vendor": "OpenAI",
-          "license": "proprietary",
-          "score": 1478.0,
-          "ci": 4.0,
-          "votes": 56693
-        },
-        {
-          "rank": 15,
-          "model": "gemini-3.5-flash-high",
-          "vendor": "Google",
-          "license": "proprietary",
-          "score": 1476.0,
-          "ci": 7.0,
-          "votes": 10104
-        },
-        {
-          "rank": 16,
-          "model": "gpt-5.2-chat-latest-20260210",
-          "vendor": "OpenAI",
-          "license": "proprietary",
-          "score": 1476.0,
-          "ci": 4.0,
-          "votes": 34450
-        },
-        {
-          "rank": 17,
-          "model": "claude-opus-4-8",
-          "vendor": "Anthropic",
-          "license": "proprietary",
-          "score": 1476.0,
-          "ci": 5.0,
-          "votes": 29233
-        },
-        {
-          "rank": 18,
-          "model": "qwen3.7-max-preview",
-          "vendor": "Alibaba",
-          "license": "proprietary",
-          "score": 1475.0,
-          "ci": 10.0,
-          "votes": 3717
-        },
-        {
-          "rank": 19,
-          "model": "gpt-5.5",
-          "vendor": "OpenAI",
-          "license": "proprietary",
-          "score": 1475.0,
-          "ci": 4.0,
-          "votes": 44872
-        },
-        {
-          "rank": 20,
-          "model": "grok-4.20-beta1",
-          "vendor": "SpaceXAI",
-          "license": "proprietary",
-          "score": 1474.0,
-          "ci": 5.0,
-          "votes": 26858
         }
       ]
     },
