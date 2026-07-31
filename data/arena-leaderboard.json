@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "snapshot_date": "2026-07-30",
-  "fetched_at": "2026-07-30T09:12:02.064894Z",
+  "snapshot_date": "2026-07-31",
+  "fetched_at": "2026-07-31T09:23:16.089292Z",
   "source": {
     "name": "Arena AI Leaderboards — Daily Snapshots",
     "repository": "https://github.com/oolong-tea-2026/arena-ai-leaderboards",
@@ -11,7 +11,7 @@
     "text": {
       "label": "Text",
       "source_url": "https://arena.ai/leaderboard/text",
-      "upstream_model_count": 40,
+      "upstream_model_count": 20,
       "models": [
         {
           "rank": 1,
@@ -198,7 +198,7 @@
     "code": {
       "label": "Code",
       "source_url": "https://arena.ai/leaderboard/code",
-      "upstream_model_count": 104,
+      "upstream_model_count": 50,
       "models": [
         {
           "rank": 1,
@@ -355,6 +355,15 @@
         },
         {
           "rank": 18,
+          "model": "gpt-5.6-luna-xhigh (codex-harness)",
+          "vendor": "OpenAI",
+          "license": "proprietary",
+          "score": 1525.0,
+          "ci": 13.0,
+          "votes": 2690
+        },
+        {
+          "rank": 19,
           "model": "claude-sonnet-4-6",
           "vendor": "Anthropic",
           "license": "proprietary",
@@ -363,29 +372,20 @@
           "votes": 16915
         },
         {
-          "rank": 19,
-          "model": "glm-5.1",
-          "vendor": "Z.ai",
-          "license": "open",
-          "score": 1518.0,
-          "ci": 8.0,
-          "votes": 6901
-        },
-        {
           "rank": 20,
-          "model": "hy3",
-          "vendor": "Tencent",
-          "license": "open",
-          "score": 1517.0,
-          "ci": 17.0,
-          "votes": 1484
+          "model": "gpt-5.6-terra-xhigh (codex-harness)",
+          "vendor": "OpenAI",
+          "license": "proprietary",
+          "score": 1522.0,
+          "ci": 13.0,
+          "votes": 2665
         }
       ]
     },
     "vision": {
       "label": "Vision",
       "source_url": "https://arena.ai/leaderboard/vision",
-      "upstream_model_count": 20,
+      "upstream_model_count": 30,
       "models": [
         {
           "rank": 1,
@@ -533,6 +533,15 @@
         },
         {
           "rank": 17,
+          "model": "gpt-5.6-sol-xhigh",
+          "vendor": "OpenAI",
+          "license": "proprietary",
+          "score": 1279.0,
+          "ci": 13.0,
+          "votes": 2444
+        },
+        {
+          "rank": 18,
           "model": "claude-opus-4-8",
           "vendor": "Anthropic",
           "license": "proprietary",
@@ -541,7 +550,7 @@
           "votes": 10626
         },
         {
-          "rank": 18,
+          "rank": 19,
           "model": "gpt-5.4",
           "vendor": "OpenAI",
           "license": "proprietary",
@@ -550,22 +559,13 @@
           "votes": 19583
         },
         {
-          "rank": 19,
+          "rank": 20,
           "model": "gpt-5.2-chat-latest-20260210",
           "vendor": "OpenAI",
           "license": "proprietary",
           "score": 1278.0,
           "ci": 7.0,
           "votes": 15403
-        },
-        {
-          "rank": 20,
-          "model": "gemini-3.1-pro-preview",
-          "vendor": "Google",
-          "license": "proprietary",
-          "score": 1278.0,
-          "ci": 6.0,
-          "votes": 35988
         }
       ]
     }
