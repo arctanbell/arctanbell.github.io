@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "snapshot_date": "2026-08-08",
-  "fetched_at": "2026-08-08T07:28:01.685601Z",
+  "snapshot_date": "2026-08-09",
+  "fetched_at": "2026-08-09T07:30:43.703867Z",
   "source": {
     "name": "Arena AI Leaderboards — Daily Snapshots",
     "repository": "https://github.com/oolong-tea-2026/arena-ai-leaderboards",
@@ -213,7 +213,7 @@
           "rank": 2,
           "model": "kimi-k3-max",
           "vendor": "Moonshot",
-          "license": "open",
+          "license": "proprietary",
           "score": 1675.0,
           "ci": 12.0,
           "votes": 4372
@@ -385,7 +385,7 @@
     "vision": {
       "label": "Vision",
       "source_url": "https://arena.ai/leaderboard/vision",
-      "upstream_model_count": 30,
+      "upstream_model_count": 20,
       "models": [
         {
           "rank": 1,
