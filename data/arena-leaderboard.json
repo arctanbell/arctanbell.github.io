@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "snapshot_date": "2026-08-15",
-  "fetched_at": "2026-08-15T07:06:21.228859Z",
+  "snapshot_date": "2026-08-16",
+  "fetched_at": "2026-08-16T07:08:06.973716Z",
   "source": {
     "name": "Arena AI Leaderboards — Daily Snapshots",
     "repository": "https://github.com/oolong-tea-2026/arena-ai-leaderboards",
@@ -198,7 +198,7 @@
     "code": {
       "label": "Code",
       "source_url": "https://arena.ai/leaderboard/code",
-      "upstream_model_count": 115,
+      "upstream_model_count": 50,
       "models": [
         {
           "rank": 1,
@@ -213,7 +213,7 @@
           "rank": 2,
           "model": "kimi-k3-max",
           "vendor": "Moonshot",
-          "license": "proprietary",
+          "license": "open",
           "score": 1674.0,
           "ci": 11.0,
           "votes": 4546
@@ -385,7 +385,7 @@
     "vision": {
       "label": "Vision",
       "source_url": "https://arena.ai/leaderboard/vision",
-      "upstream_model_count": 50,
+      "upstream_model_count": 20,
       "models": [
         {
           "rank": 1,
