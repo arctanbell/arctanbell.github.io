@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "snapshot_date": "2026-08-22",
-  "fetched_at": "2026-08-22T07:08:50.399211Z",
+  "snapshot_date": "2026-08-23",
+  "fetched_at": "2026-08-23T07:09:50.277705Z",
   "source": {
     "name": "Arena AI Leaderboards — Daily Snapshots",
     "repository": "https://github.com/oolong-tea-2026/arena-ai-leaderboards",
@@ -385,7 +385,7 @@
     "vision": {
       "label": "Vision",
       "source_url": "https://arena.ai/leaderboard/vision",
-      "upstream_model_count": 40,
+      "upstream_model_count": 50,
       "models": [
         {
           "rank": 1,
