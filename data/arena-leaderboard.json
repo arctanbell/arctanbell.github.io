@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "snapshot_date": "2026-09-12",
-  "fetched_at": "2026-09-12T11:03:54.046407Z",
+  "snapshot_date": "2026-09-13",
+  "fetched_at": "2026-09-13T12:11:26.732720Z",
   "source": {
     "name": "Arena AI Leaderboards — Daily Snapshots",
     "repository": "https://github.com/oolong-tea-2026/arena-ai-leaderboards",
@@ -11,7 +11,7 @@
     "text": {
       "label": "Text",
       "source_url": "https://arena.ai/leaderboard/text",
-      "upstream_model_count": 50,
+      "upstream_model_count": 20,
       "models": [
         {
           "rank": 1,
@@ -198,7 +198,7 @@
     "code": {
       "label": "Code",
       "source_url": "https://arena.ai/leaderboard/code",
-      "upstream_model_count": 20,
+      "upstream_model_count": 44,
       "models": [
         {
           "rank": 1,
