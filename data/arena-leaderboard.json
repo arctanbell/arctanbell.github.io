@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "snapshot_date": "2026-09-19",
-  "fetched_at": "2026-09-19T11:18:37.687337Z",
+  "snapshot_date": "2026-09-20",
+  "fetched_at": "2026-09-20T11:40:20.408918Z",
   "source": {
     "name": "Arena AI Leaderboards — Daily Snapshots",
     "repository": "https://github.com/oolong-tea-2026/arena-ai-leaderboards",
@@ -198,7 +198,7 @@
     "code": {
       "label": "Code",
       "source_url": "https://arena.ai/leaderboard/code",
-      "upstream_model_count": 44,
+      "upstream_model_count": 20,
       "models": [
         {
           "rank": 1,
@@ -240,7 +240,7 @@
           "rank": 5,
           "model": "kimi-k3-max",
           "vendor": "Moonshot",
-          "license": "proprietary",
+          "license": null,
           "score": 1674.0,
           "ci": 11.0,
           "votes": 4547
@@ -276,7 +276,7 @@
           "rank": 9,
           "model": "qwen3.8-flash-next",
           "vendor": "Alibaba",
-          "license": "open",
+          "license": null,
           "score": 1635.0,
           "ci": 13.0,
           "votes": 2779
