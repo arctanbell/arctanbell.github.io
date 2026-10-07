@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "snapshot_date": "2026-10-06",
-  "fetched_at": "2026-10-06T13:29:32.848203Z",
+  "snapshot_date": "2026-10-07",
+  "fetched_at": "2026-10-07T13:41:42.723847Z",
   "source": {
     "name": "Arena AI Leaderboards — Daily Snapshots",
     "repository": "https://github.com/oolong-tea-2026/arena-ai-leaderboards",
@@ -198,16 +198,16 @@
     "code": {
       "label": "Code",
       "source_url": "https://arena.ai/leaderboard/code",
-      "upstream_model_count": 30,
+      "upstream_model_count": 20,
       "models": [
         {
           "rank": 1,
           "model": "claude-opus-5.5-max",
           "vendor": "Anthropic",
           "license": "proprietary",
-          "score": 1815.0,
+          "score": 1814.0,
           "ci": 16.0,
-          "votes": 2062
+          "votes": 2229
         },
         {
           "rank": 2,
@@ -215,116 +215,116 @@
           "vendor": "OpenAI",
           "license": "proprietary",
           "score": 1788.0,
-          "ci": 10.0,
-          "votes": 6123
+          "ci": 11.0,
+          "votes": 5057
         },
         {
           "rank": 3,
           "model": "claude-sonnet-5.5-xhigh",
           "vendor": "Anthropic",
           "license": "proprietary",
-          "score": 1786.0,
-          "ci": 18.0,
-          "votes": 1531
+          "score": 1773.0,
+          "ci": 15.0,
+          "votes": 2150
         },
         {
           "rank": 4,
           "model": "gpt-6.1-sol-max",
           "vendor": "OpenAI",
           "license": "proprietary",
-          "score": 1758.0,
-          "ci": 17.0,
-          "votes": 1620
+          "score": 1757.0,
+          "ci": 15.0,
+          "votes": 1965
         },
         {
           "rank": 5,
           "model": "claude-fable-5.1-max",
           "vendor": "Anthropic",
           "license": "proprietary",
-          "score": 1749.0,
-          "ci": 10.0,
-          "votes": 6318
+          "score": 1745.0,
+          "ci": 9.0,
+          "votes": 6521
         },
         {
           "rank": 6,
           "model": "claude-sonnet-5.5-high",
           "vendor": "Anthropic",
           "license": "proprietary",
-          "score": 1715.0,
-          "ci": 13.0,
-          "votes": 2527
+          "score": 1716.0,
+          "ci": 11.0,
+          "votes": 3787
         },
         {
           "rank": 7,
           "model": "claude-opus-5-max",
           "vendor": "Anthropic",
           "license": "proprietary",
-          "score": 1695.0,
+          "score": 1692.0,
           "ci": 6.0,
-          "votes": 16954
+          "votes": 17162
         },
         {
           "rank": 8,
           "model": "gpt-6-sol-max",
           "vendor": "OpenAI",
           "license": "proprietary",
-          "score": 1689.0,
-          "ci": 11.0,
-          "votes": 3411
+          "score": 1687.0,
+          "ci": 12.0,
+          "votes": 3221
         },
         {
           "rank": 9,
           "model": "gemini-4-argon-high",
           "vendor": "Google",
           "license": "proprietary",
-          "score": 1680.0,
-          "ci": 13.0,
-          "votes": 2422
+          "score": 1678.0,
+          "ci": 15.0,
+          "votes": 1772
         },
         {
           "rank": 10,
           "model": "qwen3.8-max",
           "vendor": "Alibaba",
           "license": "proprietary",
-          "score": 1671.0,
+          "score": 1672.0,
           "ci": 12.0,
-          "votes": 3454
+          "votes": 3450
         },
         {
           "rank": 11,
           "model": "qwen3.8-max-0902",
           "vendor": "Alibaba",
           "license": "proprietary",
-          "score": 1670.0,
+          "score": 1672.0,
           "ci": 8.0,
-          "votes": 9485
+          "votes": 10549
         },
         {
           "rank": 12,
           "model": "claude-opus-5-high",
           "vendor": "Anthropic",
           "license": "proprietary",
-          "score": 1660.0,
+          "score": 1658.0,
           "ci": 6.0,
-          "votes": 21506
+          "votes": 21992
         },
         {
           "rank": 13,
-          "model": "kimi-k3-max",
-          "vendor": "Moonshot",
-          "license": "proprietary",
-          "score": 1658.0,
-          "ci": 6.0,
-          "votes": 16513
-        },
-        {
-          "rank": 14,
           "model": "muse-spark-1.3-max",
           "vendor": "Meta",
           "license": "proprietary",
-          "score": 1657.0,
-          "ci": 9.0,
-          "votes": 7249
+          "score": 1656.0,
+          "ci": 8.0,
+          "votes": 7678
+        },
+        {
+          "rank": 14,
+          "model": "kimi-k3-max",
+          "vendor": "Moonshot",
+          "license": "proprietary",
+          "score": 1655.0,
+          "ci": 6.0,
+          "votes": 17061
         },
         {
           "rank": 15,
@@ -332,53 +332,53 @@
           "vendor": "SpaceXAI",
           "license": "proprietary",
           "score": 1638.0,
-          "ci": 12.0,
-          "votes": 3216
+          "ci": 11.0,
+          "votes": 3734
         },
         {
           "rank": 16,
-          "model": "qwen3.8-flash-next",
-          "vendor": "Alibaba",
+          "model": "mimo-v2.6-flash",
+          "vendor": "Xiaomi",
           "license": "open",
-          "score": 1637.0,
-          "ci": 9.0,
-          "votes": 6193
+          "score": 1636.0,
+          "ci": 11.0,
+          "votes": 3851
         },
         {
           "rank": 17,
-          "model": "hy4-preview",
-          "vendor": "Tencent",
+          "model": "qwen3.8-flash-next",
+          "vendor": "Alibaba",
           "license": "open",
-          "score": 1633.0,
+          "score": 1632.0,
           "ci": 9.0,
-          "votes": 5088
+          "votes": 6711
         },
         {
           "rank": 18,
-          "model": "claude-fable-5-high",
-          "vendor": "Anthropic",
-          "license": "proprietary",
-          "score": 1625.0,
-          "ci": 6.0,
-          "votes": 14126
+          "model": "hy4-preview",
+          "vendor": "Tencent",
+          "license": "open",
+          "score": 1632.0,
+          "ci": 10.0,
+          "votes": 4798
         },
         {
           "rank": 19,
-          "model": "muse-spark-1.3 (xHigh)",
-          "vendor": "Meta",
-          "license": "proprietary",
-          "score": 1624.0,
-          "ci": 9.0,
-          "votes": 6326
+          "model": "mimo-v2.6-pro",
+          "vendor": "Xiaomi",
+          "license": "open",
+          "score": 1630.0,
+          "ci": 11.0,
+          "votes": 3415
         },
         {
           "rank": 20,
-          "model": "glm-5.3-max",
-          "vendor": "Z.ai",
-          "license": "open",
-          "score": 1623.0,
+          "model": "muse-spark-1.3 (xHigh)",
+          "vendor": "Meta",
+          "license": "proprietary",
+          "score": 1626.0,
           "ci": 8.0,
-          "votes": 7658
+          "votes": 6901
         }
       ]
     },
